@@ -15,5 +15,4 @@
         app:labelerClass="com.googlecode.android.widgets.DateSlider.labeler.MonthLabeler"
         app:labelerFormat="%tB"
         app:childWidth="200dp"/>
-    <include layout="@layout/dialogbuttons"/>
 </com.googlecode.android.widgets.DateSlider.SliderContainer>

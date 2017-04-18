@@ -21,5 +21,4 @@
         app:labelerClass="com.googlecode.android.widgets.DateSlider.labeler.TimeLabeler"
         app:labelerFormat="%tR"
         app:childWidth="80dp"/>
-    <include layout="@layout/dialogbuttons"/>
 </com.googlecode.android.widgets.DateSlider.SliderContainer>

@@ -26,8 +26,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.googlecode.android.widgets.DateSlider.SliderContainer.OnTimeChangeListener;
@@ -95,12 +98,22 @@ public class DateSlider extends Dialog {
             }
         }
 
-        this.requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        setContentView(mLayoutID);
-        this.getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.dialogtitle);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        LinearLayout.LayoutParams mainLayoutParam=new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        LinearLayout mainLayout=new LinearLayout(getContext());
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+        FrameLayout contentFrame =new FrameLayout(getContext());
 
-        mTitleText = (TextView) this.findViewById(R.id.dateSliderTitleText);
-        mContainer = (SliderContainer) this.findViewById(R.id.dateSliderContainer);
+        View buttonsLayout = getLayoutInflater().inflate(R.layout.dialogbuttons, mainLayout, false);
+        getLayoutInflater().inflate(R.layout.dialogtitle,mainLayout,true);
+        mainLayout.addView(contentFrame);
+        mainLayout.addView(buttonsLayout);
+        getLayoutInflater().inflate(mLayoutID,contentFrame,true);
+
+        mTitleText = (TextView) mainLayout.findViewById(R.id.dateSliderTitleText);
+        mContainer = (SliderContainer) contentFrame.findViewById(R.id.dateSliderContainer);
 
         mContainer.setOnTimeChangeListener(onTimeChangeListener);
         mContainer.setMinuteInterval(minuteInterval);
@@ -108,11 +121,12 @@ public class DateSlider extends Dialog {
         if (minTime!=null) mContainer.setMinTime(minTime);
         if (maxTime!=null) mContainer.setMaxTime(maxTime);
 
-        Button okButton = (Button) findViewById(R.id.dateSliderOkButton);
+        Button okButton = (Button) buttonsLayout.findViewById(R.id.dateSliderOkButton);
         okButton.setOnClickListener(okButtonClickListener);
 
-        Button cancelButton = (Button) findViewById(R.id.dateSliderCancelButton);
+        Button cancelButton = (Button) buttonsLayout.findViewById(R.id.dateSliderCancelButton);
         cancelButton.setOnClickListener(cancelButtonClickListener);
+        setContentView(mainLayout);
     }
     
     public void setTime(Calendar c) {

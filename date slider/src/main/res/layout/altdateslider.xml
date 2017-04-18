@@ -20,5 +20,4 @@
         app:labelerClass="com.googlecode.android.widgets.DateSlider.labeler.DayDateLabeler"
         app:labelerFormat="%td %ta"
         app:childWidth="45dp"/>
-    <include layout="@layout/dialogbuttons"/>
 </com.googlecode.android.widgets.DateSlider.SliderContainer>

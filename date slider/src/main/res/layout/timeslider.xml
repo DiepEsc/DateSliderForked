@@ -16,5 +16,4 @@
         app:labelerClass="com.googlecode.android.widgets.DateSlider.labeler.MinuteLabeler"
         app:labelerFormat="%tM"
         app:childWidth="45dp"/>
-    <include layout="@layout/dialogbuttons"/>
 </com.googlecode.android.widgets.DateSlider.SliderContainer>
