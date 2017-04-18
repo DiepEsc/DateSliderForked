@@ -1,0 +1,25 @@
+# view res/layout/altdateslider.xml #generated:13
+# view res/layout/altdateslider.xml #generated:18
+# view res/layout/altdateslider.xml #generated:8
+# view res/layout/customdateslider.xml #generated:14
+# view res/layout/customdateslider.xml #generated:19
+# view res/layout/customdateslider.xml #generated:8
+# view res/layout/datetimeslider.xml #generated:14
+# view res/layout/datetimeslider.xml #generated:19
+# view res/layout/datetimeslider.xml #generated:8
+# view res/layout/defaultdateslider.xml #generated:15
+# view res/layout/defaultdateslider.xml #generated:9
+# view res/layout/monthyeardateslider.xml #generated:13
+# view res/layout/monthyeardateslider.xml #generated:8
+# view res/layout/timeslider.xml #generated:14
+# view res/layout/timeslider.xml #generated:8
+-keep class com.googlecode.android.widgets.DateSlider.ScrollLayout { <init>(...); }
+
+# view res/layout/altdateslider.xml #generated:2
+# view res/layout/customdateslider.xml #generated:2
+# view res/layout/datetimeslider.xml #generated:2
+# view res/layout/defaultdateslider.xml #generated:2
+# view res/layout/monthyeardateslider.xml #generated:2
+# view res/layout/timeslider.xml #generated:2
+-keep class com.googlecode.android.widgets.DateSlider.SliderContainer { <init>(...); }
+
